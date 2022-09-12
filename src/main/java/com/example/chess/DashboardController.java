@@ -50,7 +50,7 @@ public class DashboardController {
         Parent root = FXMLLoader.load(getClass().getResource("onlinePlayer.fxml"));
         stage.setResizable(true);
         stage.setTitle("Dashboard");
-        stage.setScene(new Scene(root, 1000, 600));
+        stage.setScene(new Scene(root, 1100, 600));
 
     }
 
