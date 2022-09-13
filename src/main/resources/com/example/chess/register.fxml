@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: CYAN;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.login_registration.registerController">
+    <left>
+        <AnchorPane prefHeight="400.0" prefWidth="192.0" style="-fx-background-color: Orange;" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="236.0" fitWidth="234.0" layoutX="1.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@reg.png" />
+               </image>
+            </ImageView>
+                <Button fx:id="login" layoutX="63.0" layoutY="336.0" mnemonicParsing="false" onAction="#loginbutton" prefHeight="41.0" prefWidth="102.0" style="-fx-background-color: SKYBLUE;" text="Login">
+                    <font>
+                        <Font name="System Bold" size="18.0" />
+                    </font>
+                    <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                    </padding>
+                </Button>
+         </children>
+        </AnchorPane>
+    </left>
+   <center>
+        <AnchorPane prefHeight="400.0" prefWidth="436.0" BorderPane.alignment="CENTER">
+            <children>
+                <Label layoutX="100.0" layoutY="14.0" text="Register" textFill="#6301f5">
+                    <font>
+                        <Font name="System Bold" size="45.0" />
+                    </font>
+                </Label>
+                <Label layoutX="31.0" layoutY="88.0" text="First Name">
+                    <font>
+                        <Font name="System Bold" size="20.0" />
+                    </font>
+                </Label>
+                <Label layoutX="31.0" layoutY="238.0" text="Password">
+                    <font>
+                        <Font name="System Bold" size="20.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="firstname" layoutX="161.0" layoutY="91.0" promptText="Ex:Rashid" />
+            <TextField fx:id="lastname" layoutX="161.0" layoutY="143.0" promptText="Ex:Khan" />
+            <TextField fx:id="email" layoutX="161.0" layoutY="196.0" promptText="abc@gmail.com" />
+            <PasswordField fx:id="password" layoutX="161.0" layoutY="240.0" promptText="type password" />
+                <Button fx:id="register" layoutX="140.0" layoutY="312.0" mnemonicParsing="false" onAction="#registerbutton" prefHeight="65.0" prefWidth="146.0" style="-fx-background-color: GREEN;" text="Register">
+                    <font>
+                        <Font name="System Bold" size="25.0" />
+                    </font>
+                    <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                    </padding>
+                </Button>
+                <Label fx:id="wrongLogin" layoutX="128.0" layoutY="93.0">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+            <Label layoutX="31.0" layoutY="193.0" text="Email">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="31.0" layoutY="140.0" text="Last Name">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="result" layoutX="193.0" layoutY="279.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            </children>
+        </AnchorPane>
+   </center>
+</BorderPane>
