@@ -14,7 +14,7 @@
     <children>
         <ImageView fitHeight="699.0" fitWidth="1150.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@game.jpg" />
+                <Image url="@Game.jpeg" />
             </image>
         </ImageView>
         <Button fx:id="playonline" layoutX="220.0" layoutY="324.0" mnemonicParsing="false" onAction="#playonlinebutton" prefHeight="132.0" prefWidth="248.0" style="-fx-background-color: limegreen;" text="Play Online" textAlignment="CENTER">

@@ -38,17 +38,17 @@
                 </Label>
                 <TextField fx:id="username" layoutX="172.0" layoutY="188.0" promptText="xyz@gmail.com" />
                 <PasswordField fx:id="password" layoutX="172.0" layoutY="235.0" promptText="Password" />
-                <Button fx:id="login" layoutX="195.0" layoutY="278.0" mnemonicParsing="false" onAction="#loginbutton" prefHeight="41.0" prefWidth="102.0" style="-fx-background-color: SKYBLUE;" text="Login">
+                <Button fx:id="login" layoutX="191.0" layoutY="277.0" mnemonicParsing="false" onAction="#loginbutton" prefHeight="56.0" prefWidth="111.0" style="-fx-background-color: SKYBLUE;" text="Login">
                     <font>
-                        <Font name="System Bold" size="18.0" />
+                        <Font name="System Bold" size="29.0" />
                     </font>
                     <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                     </padding>
                 </Button>
-                <Button fx:id="register" layoutX="195.0" layoutY="333.0" mnemonicParsing="false" onAction="#registerbutton" prefHeight="45.0" prefWidth="102.0" style="-fx-background-color: GREEN;" text="Register">
+                <Button fx:id="register" layoutX="185.0" layoutY="333.0" mnemonicParsing="false" onAction="#registerbutton" prefHeight="54.0" prefWidth="124.0" style="-fx-background-color: transparent;" text="Register" textFill="#1100ff" underline="true">
                     <font>
-                        <Font name="System Bold" size="18.0" />
+                        <Font name="System Bold" size="24.0" />
                     </font>
                     <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -64,8 +64,12 @@
                         <Font name="System Bold" size="14.0" />
                     </font>
                 </Label>
+            <Label layoutX="78.0" layoutY="337.0" prefHeight="47.0" prefWidth="120.0" text="Not a user?">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
             </children>
         </AnchorPane>
     </right>
 </BorderPane>
-
