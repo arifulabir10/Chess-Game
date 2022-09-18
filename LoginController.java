@@ -45,10 +45,10 @@ public class LoginController {
             wrongLogin.setText("Success!!!");
 
             Stage stage =(Stage) login.getScene().getWindow();
-            Parent root = FXMLLoader.load(getClass().getResource("dashboard.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("after_login.fxml"));
             stage.setResizable(true);
             stage.setTitle("Dashboard");
-            stage.setScene(new Scene(root, 1000, 600));
+            stage.setScene(new Scene(root, 650, 440));
 
 
 
