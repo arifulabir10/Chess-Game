@@ -17,54 +17,15 @@
                 <Image url="@Game.jpeg" />
             </image>
         </ImageView>
-        <Button fx:id="playonline" layoutX="220.0" layoutY="324.0" mnemonicParsing="false" onAction="#playonlinebutton" prefHeight="132.0" prefWidth="248.0" style="-fx-background-color: limegreen;" text="Play Online" textAlignment="CENTER">
+        <Button fx:id="playonline" layoutX="398.0" layoutY="237.0" mnemonicParsing="false" onAction="#playonlinebutton" prefHeight="126.0" prefWidth="221.0" style="-fx-background-color: limegreen;" text="Online" textAlignment="CENTER" textFill="#0f19bf">
             <font>
                 <Font name="System Bold" size="34.0" />
             </font>
-            <textFill>
-                <LinearGradient endX="0.3666666666666667" endY="0.7428571428571428" startX="0.4141503046716318">
-                    <stops>
-                        <Stop>
-                            <color>
-                                <Color green="0.550000011920929" blue="1.0" />
-                            </color></Stop>
-                        <Stop offset="0.5619969657229549">
-                            <color>
-                                <Color red="0.7105262875556946" green="0.5986841917037964" blue="0.5986841917037964" />
-                            </color></Stop>
-                        <Stop offset="1.0">
-                            <color>
-                                <Color red="0.9868420958518982" green="0.06853070110082626" blue="0.06853070110082626" />
-                            </color></Stop>
-                    </stops>
-                </LinearGradient>
-            </textFill>
         </Button>
-        <Button fx:id="manualplay" layoutX="642.0" layoutY="320.0" mnemonicParsing="false" onAction="#manualplaybutton" prefHeight="140.0" prefWidth="248.0" style="-fx-background-color: purple;" text="1 VS 1 " textAlignment="CENTER" wrapText="true">
+        <Button fx:id="manualplay" layoutX="398.0" layoutY="376.0" mnemonicParsing="false" onAction="#manualplaybutton" prefHeight="115.0" prefWidth="221.0" style="-fx-background-color: purple;" text="Regular" textAlignment="CENTER" textFill="#00ff73" wrapText="true">
             <font>
-                <Font name="System Bold" size="46.0" />
+                <Font name="System Bold" size="34.0" />
             </font>
-            <textFill>
-                <LinearGradient endX="0.3666666666666667" endY="0.7428571428571428" startX="0.3857142857142858">
-                    <stops>
-                        <Stop>
-                            <color>
-                                <Color green="1.0" blue="0.05098039284348488" />
-                            </color>
-                        </Stop>
-                        <Stop offset="0.6370053228419347">
-                            <color>
-                                <Color red="0.31268274784088135" green="0.7763158082962036" blue="0.31268274784088135" />
-                            </color>
-                        </Stop>
-                        <Stop offset="1.0">
-                            <color>
-                                <Color red="1.0" green="0.0235294122248888" blue="0.0235294122248888" />
-                            </color>
-                        </Stop>
-                    </stops>
-                </LinearGradient>
-            </textFill>
         </Button>
         <Text layoutX="260.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to" wrappingWidth="545.13671875">
             <font>
@@ -97,7 +58,7 @@
                 </LinearGradient>
             </fill>
         </Text>
-        <Text layoutX="167.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Chess Master" textAlignment="CENTER" wrappingWidth="730.17578125">
+        <Text layoutX="175.0" layoutY="217.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Chess Master" textAlignment="CENTER" wrappingWidth="730.17578125">
             <font>
                 <Font name="Berlin Sans FB" size="96.0" />
             </font>
@@ -143,6 +104,10 @@
                 <Font name="System Bold" size="13.0" />
             </font>
         </Button>
+      <Button fx:id="new_mode" layoutX="398.0" layoutY="517.0" mnemonicParsing="false" onAction="#new_modebutton" prefHeight="106.0" prefWidth="221.0" style="-fx-background-color: Yellow;" text="New Mode" textAlignment="CENTER" textFill="#3400ff" wrapText="true">
+         <font>
+            <Font name="System Bold" size="34.0" />
+         </font>
+      </Button>
     </children>
 </AnchorPane>
-
