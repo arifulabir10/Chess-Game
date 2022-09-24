@@ -12,7 +12,11 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import javax.swing.*;
 import java.io.IOException;
+import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class LoginController {
 
@@ -32,40 +36,55 @@ public class LoginController {
     @FXML
     private Label wrongLogin;
 
+    Connection con;
+    PreparedStatement prepstat;
+    ResultSet result;
+
     @FXML
-    public void loginbutton(ActionEvent event) throws IOException {
-        checkLogin();
+    public void loginbutton(ActionEvent event) throws ClassNotFoundException, SQLException {
 
-    }
+        String user = username.getText();
+        String pass = password.getText();
 
-    private void checkLogin() throws IOException {
-        Main m = new Main();
-
-        if(username.getText().toString().equals("ariful@gmail.com") && password.getText().toString().equals("12345678")){
-            wrongLogin.setText("Success!!!");
-
-            Stage stage =(Stage) login.getScene().getWindow();
-            Parent root = FXMLLoader.load(getClass().getResource("after_login.fxml"));
-            stage.setResizable(true);
-            stage.setTitle("Dashboard");
-            stage.setScene(new Scene(root, 650, 440));
-
-
-
-
-
-        }
-        else if(username.getText().isEmpty() || password.getText().isEmpty()) {
-            wrongLogin.setText("These fields can't be empty!!");
-
+        if(user.equals("") && pass.equals("")){
+            JOptionPane.showConfirmDialog(null, "These fields can't be empty");
         }
         else {
-            wrongLogin.setText("Please try again");
-            username.setText("");
-            password.setText("");
-        }
+            try {
+                Class.forName("com.mysql.jdbc.Driver");
+                con = DriverManager.getConnection("jdbc:mysql://localhost/chess_game", "root", "");
 
-    }
+                prepstat = con.prepareStatement("Select * from user_info where email=? and password=?");
+
+                prepstat.setString(1, user);
+                prepstat.setString(2, pass);
+                result = prepstat.executeQuery();
+
+                if(result.next()){
+            //        JOptionPane.showConfirmDialog(null, "Login Success!!");
+                    Stage stage =(Stage) login.getScene().getWindow();
+                    Parent root = FXMLLoader.load(getClass().getResource("after_login.fxml"));
+                    stage.setResizable(true);
+                    stage.setTitle("Dashboard");
+                    stage.setScene(new Scene(root, 650, 440));
+
+                }
+                else {
+                    JOptionPane.showConfirmDialog(null, "Login Failed!!");
+                    username.setText("");
+                    password.setText("");
+                    username.requestFocus();
+                }
+
+                }
+            catch (ClassNotFoundException e) {
+                Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, e);
+            } catch (SQLException | IOException e) {
+                Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, e);
+            }
+
+            }
+        }
 
 
 

@@ -29,5 +29,10 @@
             <Font size="44.0" />
          </font>
       </Label>
+      <Label layoutX="219.0" layoutY="42.0" prefHeight="80.0" prefWidth="282.0" text="Welcome" textFill="WHITE">
+         <font>
+            <Font name="Sitka Small" size="54.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

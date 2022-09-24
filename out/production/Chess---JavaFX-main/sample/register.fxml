@@ -52,7 +52,7 @@
                 <TextField fx:id="firstname" layoutX="161.0" layoutY="91.0" promptText="Ex:Rashid" />
                 <TextField fx:id="lastname" layoutX="161.0" layoutY="143.0" promptText="Ex:Khan" />
                 <TextField fx:id="email" layoutX="161.0" layoutY="196.0" promptText="abc@gmail.com" />
-                <PasswordField fx:id="password" layoutX="161.0" layoutY="240.0" promptText="type password" />
+                <PasswordField fx:id="reg_pass" layoutX="161.0" layoutY="240.0" promptText="type password" />
                 <Button fx:id="register" layoutX="140.0" layoutY="312.0" mnemonicParsing="false" onAction="#registerbutton" prefHeight="65.0" prefWidth="146.0" style="-fx-background-color: GREEN;" text="Register">
                     <font>
                         <Font name="System Bold" size="25.0" />

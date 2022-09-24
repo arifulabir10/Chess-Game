@@ -3,6 +3,7 @@ package sample;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -11,24 +12,27 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import javax.swing.*;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.net.URL;
+import java.sql.*;
+import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-public class registerController {
+public class registerController implements Initializable {
 
 
 
-    public TextField first_name;
-    public TextField last_name;
+    public TextField firstname;
+    public TextField lastname;
     public TextField email;
 
     @FXML
     private Button login;
 
     @FXML
-    private PasswordField password;
+    private PasswordField reg_pass;
 
     @FXML
     private Button register;
@@ -38,6 +42,9 @@ public class registerController {
 
     @FXML
     private Label result;
+
+    Connection con;
+    PreparedStatement prepstat;
 
     @FXML
     void loginbutton(ActionEvent event) throws IOException, IOException {
@@ -51,46 +58,55 @@ public class registerController {
     }
 
     @FXML
-    void registerbutton(ActionEvent event) throws SQLException {
+    void registerbutton(ActionEvent event) {
+        String name1 = firstname.getText();
+        String name2 = lastname.getText();
+        String user_mail = email.getText();
+        String pass = reg_pass.getText();
 
 
-//        ConnectionClass connectionClass=new ConnectionClass();
-//        Connection connection=connectionClass.getConnection();
-//
-//
-//
-//        String sql= "INSERT INTO user_info VALUES ('"+first_name.getText()+" ')";
-//
-//        Statement statement = connection.createStatement();
-//        statement.executeUpdate(sql);
-//
-//        result.setText("Successful!!!");
+        if(name1.equals("") || name2.equals("") || user_mail.equals("") ||pass.equals("")){
+            JOptionPane.showConfirmDialog(null, "These fields can't be empty");
+        } else {
 
+            try {
+                Class.forName("com.mysql.jdbc.Driver");
+                con = DriverManager.getConnection("jdbc:mysql://localhost/chess_game", "root", "");
 
-        ConnectionClass connectionClass = new ConnectionClass();
-        Connection connection = connectionClass.getConnection();
+                prepstat = con.prepareStatement("insert into user_info(first_name,last_name,email,password) values(?,?,?,?)");
+                prepstat.setString(1, name1);
+                prepstat.setString(2, name2);
+                prepstat.setString(3, user_mail);
+                prepstat.setString(4, pass);
 
-        String firstname = first_name.getText();
-        String lastname = last_name.getText();
-        String emailval = email.getText();
-        String passwordval = password.getText();
+                int status = prepstat.executeUpdate();
 
+                if (status == 1) {
+                    JOptionPane.showMessageDialog(null, "Record Added");
+                    firstname.setText("");
+                    lastname.setText("");
+                    email.setText("");
+                    reg_pass.setText("");
+                    //   firstname.requestFocus();
 
-        String sql = "INSERT INTO `user_info` (' "+ first_name.getText()+last_name.getText()+ email.getText()+ password.getText()+ " ')";
-        Statement statement = connection.createStatement();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Failed to add record");
 
-//        String insertFields = "INSERT INTO `user_info` (first_name,last_name,email_val,password_val) VALUES ( '";
-//        String insertValues = firstname + "','" + lastname + "','" + emailval + "','" + passwordval + "')";
-//        String insertToRegister = insertFields + insertValues;
+                }
 
-
-
-        statement.executeUpdate(sql);
-        result.setText("Successful!!!");
-
+            } catch (ClassNotFoundException e) {
+                Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, e);
+            } catch (SQLException e) {
+                Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, e);
+            }
+        }
 
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+    }
 }
 
 
